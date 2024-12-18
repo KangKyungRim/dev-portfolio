@@ -117,7 +117,6 @@ const Edit = () => {
   };
 
   // Resume
-
   const handleAddExperiences = () => {
     setData({
       ...data,
@@ -143,6 +142,33 @@ const Edit = () => {
     setData({
       ...data,
       resume: { ...data.resume, experiences: copyExperiences },
+    });
+  };
+
+  const handleAddeducation = () => {
+    setData({
+      ...data,
+      resume: {
+        ...data.resume,
+        education: [
+          ...data.resume.education,
+          {
+            id: uuidv4(),
+            universityName: "University X",
+            universityDate: "2016-2020",
+            universityPara: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+          },
+        ],
+      },
+    });
+  };
+
+  const handleEditeducation = (index, editEducation) => {
+    let copyeducation = data.resume.education;
+    copyeducation[index] = { ...editEducation };
+    setData({
+      ...data,
+      resume: { ...data.resume, education: copyeducation },
     });
   };
 
@@ -664,66 +690,69 @@ const Edit = () => {
             <hr className="my-10"></hr>
             <div className="mt-10">
               <h1>Education</h1>
-              <div className="flex items-center mt-5">
-                <label className="w-1/5 text-lg opacity-50">Name</label>
-                <input
-                  value={data.resume.education.universityName}
-                  onChange={(e) =>
-                    setData({
-                      ...data,
-                      resume: {
-                        ...data.resume,
-                        education: {
-                          ...data.resume.education,
+              <div className="mt-10">
+              {data.resume.education.map((education, index) => (
+                <div className="mt-5" key={education.id}>
+                  <div className="flex items-center justify-between">
+                    <h1 className="text-2xl">{education.universityName}</h1>
+                    <Button
+                      // onClick={() => deleteProject(project.id)}
+                      type="primary"
+                    >
+                      Delete
+                    </Button>
+                  </div>
+
+                  <div className="flex items-center mt-5">
+                    <label className="w-1/5 text-lg opacity-50">Name</label>
+                    <input
+                      value={education.universityName}
+                      onChange={(e) =>
+                        handleEditeducation(index, {
+                          ...education,
                           universityName: e.target.value,
-                        },
-                      },
-                    })
-                  }
-                  className="w-4/5 ml-10 p-2 rounded-md shadow-lg border-2"
-                  type="text"
-                ></input>
-              </div>
-              <div className="flex items-center mt-5">
-                <label className="w-1/5 text-lg opacity-50">Dates</label>
-                <input
-                  value={data.resume.education.universityDate}
-                  onChange={(e) =>
-                    setData({
-                      ...data,
-                      resume: {
-                        ...data.resume,
-                        education: {
-                          ...data.resume.education,
+                        })
+                      }
+                      className="w-4/5 ml-10 p-2 rounded-md shadow-lg border-2"
+                      type="text"
+                    ></input>
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <label className="w-1/5 text-lg opacity-50">Date</label>
+                    <input
+                      value={education.type}
+                      onChange={(e) =>
+                        handleEditeducation(index, {
+                          ...education,
                           universityDate: e.target.value,
-                        },
-                      },
-                    })
-                  }
-                  className="w-4/5 ml-10 p-2 rounded-md shadow-lg border-2"
-                  type="text"
-                ></input>
-              </div>
-              <div className="flex items-center mt-5">
-                <label className="w-1/5 text-lg opacity-50">Detail</label>
-                <input
-                  value={data.resume.education.universityPara}
-                  onChange={(e) =>
-                    setData({
-                      ...data,
-                      resume: {
-                        ...data.resume,
-                        education: {
-                          ...data.resume.education,
+                        })
+                      }
+                      className="w-4/5 ml-10 p-2 rounded-md shadow-lg border-2"
+                      type="text"
+                    ></input>
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <label className="w-1/5 text-lg opacity-50">para</label>
+                    <input
+                      value={education.universityPara}
+                      onChange={(e) =>
+                        handleEditeducation(index, {
+                          ...education,
                           universityPara: e.target.value,
-                        },
-                      },
-                    })
-                  }
-                  className="w-4/5 ml-10 p-2 rounded-md shadow-lg border-2"
-                  type="text"
-                ></input>
-              </div>
+                        })
+                      }
+                      className="w-4/5 ml-10 p-2 rounded-md shadow-lg border-2"
+                      type="text"
+                    ></input>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="my-10">
+              <Button onClick={handleAddeducation} type="primary">
+                Add Experience +
+              </Button>
+            </div>
             </div>
             <hr className="my-10"></hr>
             <div className="mt-10">
