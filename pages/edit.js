@@ -44,10 +44,13 @@ const Edit = () => {
           id: uuidv4(),
           title: "New Project",
           description: "Web Design & Development",
+          date:"2024-12-23",
+          role:"- 서비스 디자인부터 프론트엔드 기능 구현까지 업무 수행",
+          environment:"JavaScript, React, React Router, Vite, PWA, Node,js, Axios, AWS S3, Spring boot, Redis, MySQL",
           imageSrc:
             "https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTAyfHxwYXN0ZWx8ZW58MHx8MHw%3D&auto=format&fit=crop&w=400&q=60",
-
           url: "http://chetanverma.com/",
+          git:"http://chetanverma.com/"
         },
       ],
     });
@@ -416,6 +419,54 @@ const Edit = () => {
                   </div>
                   <div className="flex items-center mt-2">
                     <label className="w-1/5 text-lg opacity-50">
+                      Date
+                    </label>
+                    <input
+                      value={project.date}
+                      onChange={(e) =>
+                        editProjects(index, {
+                          ...project,
+                          date: e.target.value,
+                        })
+                      }
+                      className="w-4/5 ml-10 p-2 rounded-md shadow-lg border-2"
+                      type="text"
+                    ></input>
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <label className="w-1/5 text-lg opacity-50">
+                      Role
+                    </label>
+                    <input
+                      value={project.role}
+                      onChange={(e) =>
+                        editProjects(index, {
+                          ...project,
+                          role: e.target.value,
+                        })
+                      }
+                      className="w-4/5 ml-10 p-2 rounded-md shadow-lg border-2"
+                      type="text"
+                    ></input>
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <label className="w-1/5 text-lg opacity-50">
+                      Environment
+                    </label>
+                    <input
+                      value={project.environment}
+                      onChange={(e) =>
+                        editProjects(index, {
+                          ...project,
+                          environment: e.target.value,
+                        })
+                      }
+                      className="w-4/5 ml-10 p-2 rounded-md shadow-lg border-2"
+                      type="text"
+                    ></input>
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <label className="w-1/5 text-lg opacity-50">
                       Image Source
                     </label>
                     <input
@@ -438,6 +489,22 @@ const Edit = () => {
                         editProjects(index, {
                           ...project,
                           url: e.target.value,
+                        })
+                      }
+                      className="w-4/5 ml-10 p-2 rounded-md shadow-lg border-2"
+                      type="text"
+                    ></input>
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <label className="w-1/5 text-lg opacity-50">
+                      Git
+                    </label>
+                    <input
+                      value={project.git}
+                      onChange={(e) =>
+                        editProjects(index, {
+                          ...project,
+                          git: e.target.value,
                         })
                       }
                       className="w-4/5 ml-10 p-2 rounded-md shadow-lg border-2"

@@ -1,6 +1,6 @@
 import { useRef } from "react";
+import { useRouter } from "next/router";
 import Header from "../components/Header";
-import ServiceCard from "../components/ServiceCard";
 import Socials from "../components/Socials";
 import WorkCard from "../components/WorkCard";
 import { useIsomorphicLayoutEffect } from "../utils";
@@ -15,6 +15,8 @@ import Cursor from "../components/Cursor";
 import data from "../data/portfolio.json";
 
 export default function Home() {
+  const router = useRouter()
+
   // Ref
   const workRef = useRef();
   const aboutRef = useRef();
@@ -88,28 +90,45 @@ export default function Home() {
               className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
             >
               {data.headerTaglineFour}
-            </h1>
+            </h1> 
           </div>
 
-          <Socials className="mt-2 laptop:mt-5" />
+          <Socials className="mt-2 laptop:mt-5"/>
         </div>
         <div className="mt-10 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
-          <h1 className="tablet:mt-10 text-2xl text-bold[">About.</h1>
-          <p className="tablet:mt-10 text-xl laptop:text-3xl w-full laptop:w-3/5">
-            {data.aboutpara}
-          </p>
+          <h1 className="tablet:mt-10 text-2xl text-bold">About.</h1>
+          <div className="contentBox mt-10 mob:mt-3 laptop:flex items-center gap-20 tablet:block">
+            <div className="laptop:w-3/5 mob:w-full">
+              <h3 className="laptop:text-6xl mt-10 mob:text-3xl mob:mb-3">Let me introduce myself!</h3>
+              <p className="text-xl w-full mob:text-1xl desktop:mt-10 tablet:mt-10 mob:mt-10 laptop:mt-10">
+                {data.aboutpara}
+              </p> 
+              <Button 
+                type="primary"
+                classes={"desktop:mt-10 tablet:mt-10 mob:mt-10 laptop:mt-10"}
+                onClick={() => router.push("/resume")}
+              >
+                Go to resume
+              </Button>
+            </div>
+            <p className="img laptop:mt-0 mob:mt-10"><img src="images/profile_img.png" alt="" /></p>
+          </div>
         </div>
-        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
+        <div className="mt-20 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
           <h1 className="text-2xl text-bold">Work.</h1>
 
-          <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
-            {data.projects.map((project) => (
+          <div className="desktop:-mt-40 tablet:mt-0">
+            {data.projects.map((project) => ( 
               <WorkCard
                 key={project.id}
                 img={project.imageSrc}
                 name={project.title}
                 description={project.description}
-                onClick={() => window.open(project.url)}
+                date={project.date}
+                role={project.role}
+                enviroment={project.environment}
+                onClick={project.url}
+                git={project.git}
               />
             ))}
           </div>

@@ -44,7 +44,7 @@ const Resume = () => {
             <div
               className={`w-full ${
                 mount && theme.theme === "dark" ? "bg-slate-800" : "bg-gray-50"
-              } max-w-4xl p-20 mob:p-5 desktop:p-20 rounded-lg shadow-sm`}
+              } max-w-4xl p-20 mob:p-8 desktop:p-20 rounded-lg shadow-sm`}
             >
               <h1 className="text-3xl font-bold">{name}</h1>
               <h2 className="text-xl mt-5">{resume.tagline}</h2>
@@ -54,6 +54,7 @@ const Resume = () => {
               <div className="mt-2">
                 <Socials />
               </div>
+              <hr className="mt-10"></hr>
               <div className="mt-10">
                 <h1 className="text-2xl font-bold">Experience</h1>
                 {resume.experiences.map(
@@ -68,6 +69,7 @@ const Resume = () => {
                   )
                 )}
               </div>
+              <hr className="mt-10"></hr>
               <div className="mt-10">
                 <h1 className="text-2xl font-bold">Education</h1>
                 {resume.education.map(
@@ -81,16 +83,17 @@ const Resume = () => {
                   )
                 )}
               </div>
+              <hr className="mt-10"></hr>
               <div className="mt-10">
                 <h1 className="text-2xl font-bold">Skills</h1>
                 <div className="flex mob:flex-col desktop:flex-row justify-between">
                   {resume.languages && (
                     <div className="mt-2 mob:mt-5">
-                      <h2 className="text-lg">Languages</h2>
-                      <ul className="list-disc">
+                      <h2 className="text-lg font-bold">Languages</h2>
+                      <ul>
                         {resume.languages.map((language, index) => (
-                          <li key={index} className="ml-5 py-2">
-                            {language}
+                          <li key={index} className="pt-2">
+                            - {language}
                           </li>
                         ))}
                       </ul>
@@ -99,11 +102,11 @@ const Resume = () => {
 
                   {resume.frameworks && (
                     <div className="mt-2 mob:mt-5">
-                      <h2 className="text-lg">Frameworks</h2>
-                      <ul className="list-disc">
+                      <h2 className="text-lg font-bold">Frameworks</h2>
+                      <ul>
                         {resume.frameworks.map((framework, index) => (
-                          <li key={index} className="ml-5 py-2">
-                            {framework}
+                          <li key={index} className="pt-2">
+                            - {framework}
                           </li>
                         ))}
                       </ul>
@@ -112,11 +115,11 @@ const Resume = () => {
 
                   {resume.others && (
                     <div className="mt-2 mob:mt-5">
-                      <h2 className="text-lg">Others</h2>
-                      <ul className="list-disc">
+                      <h2 className="text-lg font-bold">Others</h2>
+                      <ul>
                         {resume.others.map((other, index) => (
-                          <li key={index} className="ml-5 py-2">
-                            {other}
+                          <li key={index} className="pt-2">
+                            - {other}
                           </li>
                         ))}
                       </ul>
