@@ -34,7 +34,7 @@ const Resume = () => {
       )}
       {data.showCursor && <Cursor />}
       <div
-        className={`container mx-auto mb-10 ${
+        className={`container mx-auto mb-10 mob:pl-8 mob:pr-8 ${
           data.showCursor && "cursor-none"
         }`}
       >
@@ -46,17 +46,17 @@ const Resume = () => {
                 mount && theme.theme === "dark" ? "bg-slate-800" : "bg-gray-50"
               } max-w-4xl p-20 mob:p-8 desktop:p-20 rounded-lg shadow-sm`}
             >
-              <h1 className="text-3xl font-bold">{name}</h1>
-              <h2 className="text-xl mt-5">{resume.tagline}</h2>
-              <h2 className="w-5/5 text-xl mt-5 opacity-50">
+              <h1 className="tablet:text-3xl font-bold mob:text-lg">{name}</h1>
+              <h2 className="tablet:text-xl mob:text-x mt-5">{resume.tagline}</h2>
+              <h2 className="w-5/5 tablet:text-xl mob:text-sm mt-5 opacity-50">
                 {resume.description}
               </h2>
-              <div className="mt-2">
+              <div className="mt-5">
                 <Socials />
               </div>
               <hr className="mt-10"></hr>
               <div className="mt-10">
-                <h1 className="text-2xl font-bold">Experience</h1>
+                <h1 className="tablet:text-2xl font-bold mob:text-lg">Experience</h1>
                 {resume.experiences.map(
                   ({ id, dates, type, position, bullets }) => (
                     <ProjectResume
@@ -71,7 +71,7 @@ const Resume = () => {
               </div>
               <hr className="mt-10"></hr>
               <div className="mt-10">
-                <h1 className="text-2xl font-bold">Education</h1>
+                <h1 className="tablet:text-2xl font-bold mob:text-lg">Education</h1>
                 {resume.education.map(
                   ({ id, universityName, universityDate, universityPara }) => (
                     <EducationResume
@@ -85,14 +85,14 @@ const Resume = () => {
               </div>
               <hr className="mt-10"></hr>
               <div className="mt-10">
-                <h1 className="text-2xl font-bold">Skills</h1>
+                <h1 className="tablet:text-2xl font-bold mob:text-lg">Skills</h1>
                 <div className="flex mob:flex-col desktop:flex-row justify-between">
                   {resume.languages && (
                     <div className="mt-2 mob:mt-5">
-                      <h2 className="text-lg font-bold">Languages</h2>
+                      <h2 className="tablet:text-lg mob:text-sm font-bold">Languages</h2>
                       <ul>
                         {resume.languages.map((language, index) => (
-                          <li key={index} className="pt-2">
+                          <li key={index} className="pt-2 mob:text-sm tablet:text-base">
                             - {language}
                           </li>
                         ))}
@@ -102,10 +102,10 @@ const Resume = () => {
 
                   {resume.frameworks && (
                     <div className="mt-2 mob:mt-5">
-                      <h2 className="text-lg font-bold">Frameworks</h2>
+                      <h2 className="tablet:text-lg mob:text-sm font-bold">Frameworks</h2>
                       <ul>
                         {resume.frameworks.map((framework, index) => (
-                          <li key={index} className="pt-2">
+                          <li key={index} className="pt-2 mob:text-sm tablet:text-base">
                             - {framework}
                           </li>
                         ))}
@@ -115,10 +115,10 @@ const Resume = () => {
 
                   {resume.others && (
                     <div className="mt-2 mob:mt-5">
-                      <h2 className="text-lg font-bold">Others</h2>
+                      <h2 className="tablet:text-lg mob:text-sm font-bold">Others</h2>
                       <ul>
                         {resume.others.map((other, index) => (
-                          <li key={index} className="pt-2">
+                          <li key={index} className="pt-2 mob:text-sm tablet:text-base">
                             - {other}
                           </li>
                         ))}

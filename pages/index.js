@@ -60,7 +60,7 @@ export default function Home() {
       <div className="gradient-circle"></div>
       <div className="gradient-circle-bottom"></div>
 
-      <div className="container mx-auto mb-10">
+      <div className="container mx-auto mb-10 mob:pl-8 mob:pr-8">
         <Header
           handleWorkScroll={handleWorkScroll}
           handleAboutScroll={handleAboutScroll}
@@ -92,30 +92,29 @@ export default function Home() {
               {data.headerTaglineFour}
             </h1> 
           </div>
-
-          <Socials className="mt-2 laptop:mt-5"/>
+          <Socials className="mt-2 laptop:mt-5 mob:mt-10"/>
         </div>
-        <div className="mt-10 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
-          <h1 className="tablet:mt-10 text-2xl text-bold">About.</h1>
+        <div className="mt-20 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
+          <h1 className="tablet:mt-10 tablet:text-2xl mobtext-bold mob:text-1xl">About.</h1>
           <div className="contentBox mt-10 mob:mt-3 laptop:flex items-center gap-20 tablet:block">
             <div className="laptop:w-3/5 mob:w-full">
-              <h3 className="laptop:text-6xl mt-10 mob:text-3xl mob:mb-3">Let me introduce myself!</h3>
-              <p className="text-xl w-full mob:text-1xl desktop:mt-10 tablet:mt-10 mob:mt-10 laptop:mt-10">
+              <h3 className="laptop:text-6xl mt-10 mob:text-2xl mob:mb-0 mob:mt-0 mob:font-bold">Let me introduce myself!</h3>
+              <p className="tablet:text-xl tablet:w-full mob:text-sm desktop:mt-10 tablet:mt-10 mob:mt-5 laptop:mt-10">
                 {data.aboutpara}
               </p> 
               <Button 
                 type="primary"
-                classes={"desktop:mt-10 tablet:mt-10 mob:mt-10 laptop:mt-10"}
+                classes={"desktop:mt-10 tablet:mt-10 mob:mt-5 laptop:mt-10"}
                 onClick={() => router.push("/resume")}
               >
                 Go to resume
               </Button>
             </div>
-            <p className="img laptop:mt-0 mob:mt-10"><img src="images/profile_img.png" alt="" /></p>
+            <p className="img laptop:mt-0 mob:mt-10"><img src="images/profile_img.png" alt="프로필 아바타 이미지" className="mob:w-3/5 tablet:w-auto"/></p>
           </div>
         </div>
         <div className="mt-20 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
-          <h1 className="text-2xl text-bold">Work.</h1>
+          <h1 className="tablet:mt-10 tablet:text-2xl mobtext-bold mob:text-1xl">Work.</h1>
 
           <div className="desktop:-mt-40 tablet:mt-0">
             {data.projects.map((project) => ( 

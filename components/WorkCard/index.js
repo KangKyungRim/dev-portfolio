@@ -10,8 +10,8 @@ const WorkCard = ({ img, name, description, date, role, enviroment, onClick, git
   },[])
 
   return (
-    <div className="desktop:flex flex-start gap-10 desktop:mt-80 tablet:mt-20 tablet:block mob:mt-20" data-aos="fade-up">
-      <p className="img w-4/5 mob:mb-10 desktop:mb-0">
+    <div className="desktop:flex flex-start gap-10 desktop:mt-80 tablet:mt-20 tablet:block mob:mt-10" data-aos="fade-up">
+      <p className="img tablet:w-4/5 mob:w-full mob:mb-10 desktop:mb-0">
         <img
           alt={name}
           className="hover:scale-110 transition-all ease-out duration-300 rounded-2xl shadow-xl rounded-2xl "
@@ -19,26 +19,26 @@ const WorkCard = ({ img, name, description, date, role, enviroment, onClick, git
         ></img>
       </p>
       <div className="infoBox w-full tablet:mt-10 desktop:mt-0">
-        <h1 className="desktop:text-3xl font-bold mb-3 mob:text-2xl">
+        <h1 className="tablet:text-3xl font-bold mb-3 mob:text-2xl">
           {name}
         </h1>
-        <h2 className="opacity-50 mb-6">
+        <h2 className="opacity-50 mb-6 mob:text-sm ">
           {description}
         </h2>  
         <div>
           {date ? 
-            <p className="tablet:flex mb-3 mob:block">
+            <p className="tablet:flex mb-3 mob:block mob:text-sm">
               <span className="font-bold tablet:w-1/5 mob:w-full mob:block tablet:inline-block">프로젝트 기간</span>
               <span className="tablet:w-4/5 mob:w-full">{date}</span>
             </p>
             :
             ""
           }
-          <p className="tablet:flex mb-3 mob:block">
+          <p className="tablet:flex mb-3 mob:block mob:text-sm">
             <span className="font-bold tablet:w-1/5 mob:w-full mob:block tablet:inline-block">맡은 역할</span>
             <span className="tablet:w-4/5 mob:w-full">{role}</span>
           </p>
-          <p className="tablet:flex mob:block">
+          <p className="tablet:flex mob:block mob:text-sm">
             <span className="font-bold tablet:w-1/5 mob:w-full mob:block tablet:inline-block">사용 스킬</span>
             <span className="tablet:w-4/5 mob:w-full">{enviroment}</span>
           </p>
