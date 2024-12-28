@@ -19,10 +19,10 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
 
   return (
     <>
-      <Popover className="block tablet:hidden mt-5">
+      <Popover className="block tablet:hidden mob:auto mt-5 sticky left-0 top-0 z-10">
         {({ open }) => (
           <>
-            <div className="flex items-center justify-between p-2 laptop:p-0 mob:p-0">
+            <div className="flex items-center justify-between p-2 laptop:p-0 mob:p-0 ">
               <h1
                 onClick={() => router.push("/")}
                 className="p-2 laptop:p-0 link"
@@ -63,7 +63,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
               </div>
             </div>
             <Popover.Panel
-              className={`absolute left-50 z-10 w-10/12 p-4 ${
+              className={`absolute left-50 z-10 w-full p-4 ${
                 theme === "dark" ? "bg-slate-800" : "bg-white"
               } shadow-md rounded-md`}
             >

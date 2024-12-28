@@ -60,7 +60,7 @@ export default function Home() {
       <div className="gradient-circle"></div>
       <div className="gradient-circle-bottom"></div>
 
-      <div className="container mx-auto mb-10 mob:pl-8 mob:pr-8">
+      <div className="container mx-auto mb-10 mob:pl-8 mob:pr-8 relative">
         <Header
           handleWorkScroll={handleWorkScroll}
           handleAboutScroll={handleAboutScroll}
@@ -69,25 +69,25 @@ export default function Home() {
           <div className="mt-5">
             <h1
               ref={textOne}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5"
+              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5 leading-snug"
             >
               {data.headerTaglineOne}
             </h1>
             <h1
               ref={textTwo}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5 leading-snug"
             >
               {data.headerTaglineTwo}
             </h1>
             <h1
               ref={textThree}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5 leading-snug"
             >
               {data.headerTaglineThree}
             </h1>
             <h1
               ref={textFour}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5 leading-snug"
             >
               {data.headerTaglineFour}
             </h1> 
@@ -95,16 +95,16 @@ export default function Home() {
           <Socials className="mt-2 laptop:mt-5 mob:mt-10"/>
         </div>
         <div className="mt-20 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
-          <h1 className="tablet:mt-10 tablet:text-2xl mobtext-bold mob:text-1xl">About.</h1>
-          <div className="contentBox mt-10 mob:mt-3 laptop:flex items-center gap-20 tablet:block">
+          <h1 className="tablet:mt-10 tablet:text-2xl mob:text-1xl">About.</h1>
+          <div className="contentBox tablet:mt-10 mob:mt-3 laptop:flex items-center gap-20 tablet:block">
             <div className="laptop:w-3/5 mob:w-full">
-              <h3 className="laptop:text-6xl mt-10 mob:text-2xl mob:mb-0 mob:mt-0 mob:font-bold">Let me introduce myself!</h3>
-              <p className="tablet:text-xl tablet:w-full mob:text-sm desktop:mt-10 tablet:mt-10 mob:mt-5 laptop:mt-10">
+              <h3 className="laptop:text-6xl mt-10 mob:text-2xl mob:mb-0 mob:mt-0 mob:font-bold tablet:font-medium">Let me introduce myself!</h3>
+              <p className="tablet:text-lg tablet:w-full mob:text-sm desktop:mt-10 tablet:mt-10 mob:mt-5 laptop:mt-10">
                 {data.aboutpara}
               </p> 
               <Button 
                 type="primary"
-                classes={"desktop:mt-10 tablet:mt-10 mob:mt-5 laptop:mt-10"}
+                classes={"desktop:mt-10 tablet:mt-10 mob:mt-5 "}
                 onClick={() => router.push("/resume")}
               >
                 Go to resume
@@ -113,8 +113,8 @@ export default function Home() {
             <p className="img laptop:mt-0 mob:mt-10"><img src="images/profile_img.png" alt="프로필 아바타 이미지" className="mob:w-3/5 tablet:w-auto"/></p>
           </div>
         </div>
-        <div className="mt-20 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
-          <h1 className="tablet:mt-10 tablet:text-2xl mobtext-bold mob:text-1xl">Work.</h1>
+        <div className="mt-20 laptop:mt-40 p-2 laptop:p-0" ref={workRef}>
+          <h1 className="tablet:mt-10 tablet:text-2xl mob:text-1xl">Work.</h1>
 
           <div className="desktop:-mt-40 tablet:mt-0">
             {data.projects.map((project) => ( 
