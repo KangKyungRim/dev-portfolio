@@ -1,42 +1,39 @@
 import React, { useEffect, useState } from "react";
-import CustomCursor from "custom-cursor-react";
-import "custom-cursor-react/dist/index.css";
+import dynamic from "next/dynamic";
 import { useTheme } from "next-themes";
 
-const Cursor = () => {
-  const theme = useTheme();
-  const [mount, setMount] = useState();
+const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
+  ssr: false,
+});
 
-  const getCusomColor = () => {
-    if (theme.theme === "dark") {
-      return "#fff";
-    } else if (theme.theme === "light") {
-      return "#000";
-    }
-  };
+export default function Cursor() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMount(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  const color = theme === "dark" ? "255,255,255" : "0,0,0";
+
   return (
-    <>
-      {mount && (
-        <CustomCursor
-          targets={[".link"]}
-          customClass="custom-cursor"
-          dimensions={30}
-          fill={getCusomColor()}
-          smoothness={{
-            movement: 0.2,
-            scale: 0.1,
-            opacity: 0.2,
-          }}
-          targetOpacity={0.5}
-          targetScale={2}
-        />
-      )}
-    </>
+    <AnimatedCursor
+      clickables={[
+        ".link",
+        "a",
+        "button",
+        "[role='button']",
+        "input",
+        "textarea",
+        "[data-cursor='grow']",
+      ]}
+      innerSize={10}
+      outerSize={30}
+      color={color}
+      innerScale={1}
+      outerScale={2}
+      outerAlpha={0.2}
+      showSystemCursor={false}
+    />
   );
-};
-
-export default Cursor;
+}
