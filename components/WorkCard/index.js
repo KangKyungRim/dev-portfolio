@@ -43,28 +43,26 @@ const WorkCard = ({ img, name, description, date, role, enviroment, onClick, git
             <span className="tablet:w-4/5 mob:w-full">{enviroment}</span>
           </p>
         </div>
-        <div className="links mt-6 pt-6 border-t border-neutral-400">
-          {onClick ? 
-            <Button
-              onClick={() => window.open(onClick)}
-              type="primary"
-            >
-              Link
-            </Button>
-            :
-            ""
-          }
-          {git ? 
-            <Button
-              onClick={() => window.open(git)}
-              type="primary"
-            >
-              Git
-            </Button>
-            :
-            ""
-          }
-        </div>
+        {(onClick || git) && (
+          <div className="links mt-6 pt-6 border-t border-neutral-400">
+            {onClick && (
+              <Button
+                onClick={() => window.open(onClick)}
+                type="primary"
+              >
+                Link
+              </Button>
+            )}
+            {git && (
+              <Button
+                onClick={() => window.open(git)}
+                type="primary"
+              >
+                Git
+              </Button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
